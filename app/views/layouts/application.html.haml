@@ -4,6 +4,8 @@
     %title
       = t('title.main')
       = content_for?(:title) ? yield(:title) : t('title.default')
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "width=device-width, initial-scale=1, shrink-to-fit=no", :name => "viewport"}/
     = csrf_meta_tag
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
