@@ -1,0 +1,12 @@
+!!!
+%html
+  %head
+    %title
+      = t('title.main')
+      = content_for?(:title) ? yield(:title) : t('title.default')
+    = csrf_meta_tag
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    = yield

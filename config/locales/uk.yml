@@ -263,3 +263,6 @@ uk:
       long: "%d %B %Y, %H:%M"
       short: "%d %b, %H:%M"
     pm: по полудні
+  title:
+    main: "Теорія захисту інформації"
+    default: "ТЗІ"
