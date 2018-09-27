@@ -28,6 +28,11 @@
               = fa_icon 'flask'
               = t('link.summary')
             .dropdown-menu{"aria-labelledby" => "dropdown01"}
+              - if @labs.any?
+                %a.dropdown-item
+                  Text
+              - else
+                %a.dropdown-item.disabled= t('link.no_labs')
         %ul.navbar-nav.my-2.my-md-0.mr-md-3
           %li.nav-item{ class: active_class?(root_path) }
             = link_to '#', class: 'nav-link' do
@@ -37,5 +42,5 @@
             = link_to '#', class: 'nav-link' do
               = fa_icon 'user-plus'
               = t('link.sign_up')
-    %main.container{:role => "main"}
+    %main.container-fluid{:role => "main"}
       = yield
