@@ -13,3 +13,7 @@
  */
 @import "bootstrap";
 @import "font-awesome";
+
+.container[role='main'] {
+  min-height: 800px;
+}
