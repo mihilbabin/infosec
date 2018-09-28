@@ -272,3 +272,7 @@ uk:
     sign_in: Вхід
     sign_up: Реєстрація
     no_labs: Немає лабораторних
+  nav:
+    title: Титульна сторінка
+  shared:
+    download: Завантажити

@@ -1,0 +1,14 @@
+.list-group.mt-5
+  = link_to root_path, class: "list-group-item list-group-item-action flex-column align-items-start #{active_class?(root_path)}" do
+    .d-flex.w-100.justify-content-between
+      %h5.mb-1= t('nav.title')
+      %small
+        = fa_icon 'download'
+        = t('shared.download')
+    %div
+  %a.list-group-item.list-group-item-action.flex-column.align-items-start{:href => "#"}
+    .d-flex.w-100.justify-content-between
+      %h5.mb-1 List group item heading
+      %small.text-muted 3 days ago
+    %p.mb-1 Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
+    %small.text-muted Donec id elit non mi porta.
