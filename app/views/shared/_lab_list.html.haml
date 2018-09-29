@@ -4,9 +4,9 @@
       %h5.mb-1= t('nav.title')
       %small
     %div
-  %a.list-group-item.list-group-item-action.flex-column.align-items-start{:href => "#"}
-    .d-flex.w-100.justify-content-between
-      %h5.mb-1 List group item heading
-      %small.text-muted 3 days ago
-    %p.mb-1 Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.
-    %small.text-muted Donec id elit non mi porta.
+  - @labs.each do |l|
+    = link_to lab_path(l), class: "list-group-item list-group-item-action flex-column align-items-start #{active_class?(lab_path(l))}" do
+      .d-flex.w-100.justify-content-between
+        %h5.mb-1= l.title
+      %p.mb-1= l.topic
+      %small.text-muted= t('activerecord.updated_in_words', time_in_words: time_ago_in_words(l.updated_at))

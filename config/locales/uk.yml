@@ -16,6 +16,7 @@ uk:
         topic: Тема
         partial_name: Ім'я шаблону
         asset_name: Файл звіту
+    updated_in_words: "Оновлено %{time_in_words} тому"
   date:
     abbr_day_names:
     - нд.

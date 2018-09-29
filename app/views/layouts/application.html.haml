@@ -29,8 +29,8 @@
               = t('link.summary')
             .dropdown-menu{"aria-labelledby" => "dropdown01"}
               - if @labs.any?
-                %a.dropdown-item
-                  Text
+                - @labs.each do |l|
+                  = link_to l.title, lab_path(l), class: "dropdown-item #{active_class?(lab_path(l))}"
               - else
                 %a.dropdown-item.disabled= t('link.no_labs')
         %ul.navbar-nav.my-2.my-md-0.mr-md-3
