@@ -15,6 +15,8 @@ uk:
       lab:
         title: Назва
         topic: Тема
+        goal: Мета роботи
+        task: Завдання
         partial_name: Ім'я шаблону
         asset_name: Файл звіту
     updated_in_words: "Оновлено %{time_in_words} тому"
