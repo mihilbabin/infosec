@@ -11,36 +11,6 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    %nav.navbar.navbar-expand-md.navbar-dark.bg-dark
-      = link_to root_path, class: 'navbar-brand' do
-        = fa_icon 'leanpub'  
-      %button.navbar-toggler{"aria-controls" => "navbarsExampleDefault", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarsExampleDefault", "data-toggle" => "collapse", :type => "button"}
-        %span.navbar-toggler-icon
-      #navbarsExampleDefault.collapse.navbar-collapse
-        %ul.navbar-nav.mr-auto
-          %li.nav-item{ class: active_class?(root_path) }
-            = link_to root_path, class: 'nav-link' do
-              = fa_icon 'home'
-              = t('link.home')
-              %span.sr-only (current)
-          %li.nav-item.dropdown
-            %a#dropdown01.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown"}
-              = fa_icon 'flask'
-              = t('link.summary')
-            .dropdown-menu{"aria-labelledby" => "dropdown01"}
-              - if @labs.any?
-                - @labs.each do |l|
-                  = link_to l.title, lab_path(l), class: "dropdown-item #{active_class?(lab_path(l))}"
-              - else
-                %a.dropdown-item.disabled= t('link.no_labs')
-        %ul.navbar-nav.my-2.my-md-0.mr-md-3
-          %li.nav-item{ class: active_class?(root_path) }
-            = link_to '#', class: 'nav-link' do
-              = fa_icon 'sign-in'
-              = t('link.sign_in')
-          %li.nav-item{ class: active_class?(root_path) }
-            = link_to '#', class: 'nav-link' do
-              = fa_icon 'user-plus'
-              = t('link.sign_up')
+    = render 'shared/navbar'
     %main.container-fluid{:role => "main"}
       = yield
