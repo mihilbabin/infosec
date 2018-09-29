@@ -1,3 +1,3 @@
 class Lab < ApplicationRecord
-  validates :title, :topic, :partial_name, presence: true
+  validates :title, :topic, :goal, :task, :partial_name, presence: true
 end
