@@ -1,2 +1,6 @@
-%p= @lab.topic
-%small= @lab.title
+.row
+  .col-4
+    = render "labs/shared/aside"
+  .col-8
+    = render 'labs/shared/heading'
+    = render "labs/labs/#{@lab.partial_name}"

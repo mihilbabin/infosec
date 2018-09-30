@@ -1,0 +1,11 @@
+.heading.mt-4
+  %h5.text-center= @lab.title
+.heading.mt-4
+  %h5.text-center= @lab.topic
+.sub-heading.mt-4
+  %p.text-left
+    %strong= t("activerecord.attributes.lab.goal") + ':'
+    = @lab.goal
+  %p.text-left
+    %strong= t("activerecord.attributes.lab.task") + ':'
+    = @lab.task

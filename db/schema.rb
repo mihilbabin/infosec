@@ -34,8 +34,8 @@ ActiveRecord::Schema.define(version: 2018_09_29_132841) do
     t.string "asset_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "goal"
-    t.string "task"
+    t.text "goal"
+    t.text "task"
   end
 
 end
