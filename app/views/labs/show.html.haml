@@ -4,7 +4,7 @@
   .col-8
     - if @lab.asset_name.present?
       .alert.alert-warning.alert-dismissible.mt-4.fade.show{:role => "alert"}
-        = link_to download_lab_path(@lab), class: 'alert-link' do
+        = link_to download_lab_path(@lab), target: '_blank', class: 'alert-link' do
           = fa_icon 'download'
           = t('shared.download')
           звіт на диск
