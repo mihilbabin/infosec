@@ -2,5 +2,13 @@
   .col-4
     = render "labs/shared/aside"
   .col-8
+    - if @lab.asset_name.present?
+      .alert.alert-warning.alert-dismissible.mt-4.fade.show{:role => "alert"}
+        = link_to download_lab_path(@lab), class: 'alert-link' do
+          = fa_icon 'download'
+          = t('shared.download')
+          звіт на диск
+        %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
+          %span{"aria-hidden" => "true"} ×
     = render 'labs/shared/heading'
     = render "labs/labs/#{@lab.partial_name}"
