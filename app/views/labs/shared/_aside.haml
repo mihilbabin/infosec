@@ -1,0 +1,11 @@
+.list-group.mt-4
+  = link_to '#start', class: "list-group-item list-group-item-action flex-column align-items-start #{active_class?(root_path)}" do
+    .d-flex.w-100.justify-content-between
+      %h5.mb-1= @lab.title
+  - if @lab.partial_name.in?(['lab_1', 'lab_2'])
+    = link_to '#process', class: "list-group-item list-group-item-action flex-column align-items-start #{active_class?(root_path)}" do
+      .d-flex.w-100.justify-content-between
+        %h5.mb-1= t('nav.process')
+  = link_to '#conclusion', class: "list-group-item list-group-item-action flex-column align-items-start #{active_class?(root_path)}" do
+    .d-flex.w-100.justify-content-between
+      %h5.mb-1= t('nav.conclusion')
