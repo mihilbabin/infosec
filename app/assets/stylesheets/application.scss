@@ -30,3 +30,12 @@ p {
 .nav-item {
   cursor: pointer;
 }
+
+.report p {
+  text-indent: 3rem;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+}
