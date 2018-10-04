@@ -25,49 +25,56 @@
     — ключ.
 
 %h5.text-center.mt-4#listing= t('nav.listing')
-.report
-  %pre
-    %code{class: 'ruby'}
-      :preserve
-        class Caesar
-          attr_reader :offset
+%ul#pills-tab.nav.nav-pills.mb-3{:role => "tablist"}
+  %li.nav-item
+    %a#pills-home-tab.nav-link.active{"aria-controls" => "pills-home", "aria-selected" => "true", "data-toggle" => "pill", :href => "#pills-home", :role => "tab"}= t('lab3.caesars')
+  %li.nav-item
+    %a#pills-profile-tab.nav-link{"aria-controls" => "pills-profile", "aria-selected" => "false", "data-toggle" => "pill", :href => "#pills-profile", :role => "tab"} NULL
+#pills-tabContent.tab-content
+  #pills-home.tab-pane.fade.show.active{"aria-labelledby" => "pills-home-tab", :role => "tabpanel"}
+    %pre
+      %code{class: 'ruby'}
+        :preserve
+          class Caesar
+            attr_reader :offset
 
-          LOW_RU_ALPHABET = Array('а'..'я')
-          UP_RU_ALPHABET = Array('А'..'Я')
-          LOW_EN_ALPHABET = Array('a'..'z')
-          UP_EN_ALPHABET = Array('A'..'Z')
+            LOW_RU_ALPHABET = Array('а'..'я')
+            UP_RU_ALPHABET = Array('А'..'Я')
+            LOW_EN_ALPHABET = Array('a'..'z')
+            UP_EN_ALPHABET = Array('A'..'Z')
 
-          def initialize(offset = 8)
-            @offset = offset
-            @encryptor = create_encryption_table(offset)
-            @decryptor = create_encryption_table(-offset)
+            def initialize(offset = 8)
+              @offset = offset
+              @encryptor = create_encryption_table(offset)
+              @decryptor = create_encryption_table(-offset)
+            end
+
+            def offset=(offset)
+              @offset = offset
+              @encryptor = create_encryption_table(offset)
+              @decryptor = create_encryption_table(-offset)
+            end
+
+            def encode(text)
+              text.chars.map { |c| @encryptor.fetch(c, c) }.join
+            end
+
+            def decode(text)
+              text.chars.map { |c| @decryptor.fetch(c, c) }.join
+            end
+
+            private
+
+            def create_encryption_table(offset)
+              [
+                Hash[LOW_RU_ALPHABET.zip(LOW_RU_ALPHABET.rotate(offset))],
+                Hash[UP_RU_ALPHABET.zip(UP_RU_ALPHABET.rotate(offset))],
+                Hash[LOW_EN_ALPHABET.zip(LOW_EN_ALPHABET.rotate(offset))],
+                Hash[UP_EN_ALPHABET.zip(UP_EN_ALPHABET.rotate(offset))]
+              ].inject(&:merge)
+            end
           end
-
-          def offset=(offset)
-            @offset = offset
-            @encryptor = create_encryption_table(offset)
-            @decryptor = create_encryption_table(-offset)
-          end
-
-          def encode(text)
-            text.chars.map { |c| @encryptor.fetch(c, c) }.join
-          end
-
-          def decode(text)
-            text.chars.map { |c| @decryptor.fetch(c, c) }.join
-          end
-
-          private
-
-          def create_encryption_table(offset)
-            [
-              Hash[LOW_RU_ALPHABET.zip(LOW_RU_ALPHABET.rotate(offset))],
-              Hash[UP_RU_ALPHABET.zip(UP_RU_ALPHABET.rotate(offset))],
-              Hash[LOW_EN_ALPHABET.zip(LOW_EN_ALPHABET.rotate(offset))],
-              Hash[UP_EN_ALPHABET.zip(UP_EN_ALPHABET.rotate(offset))]
-            ].inject(&:merge)
-          end
-        end
+  #pills-profile.tab-pane.fade{"aria-labelledby" => "pills-profile-tab", :role => "tabpanel"} text2
 %h5.text-center.mt-4#results= t('nav.results')
 .report
 = render 'labs/labs/lab_3/tabs'

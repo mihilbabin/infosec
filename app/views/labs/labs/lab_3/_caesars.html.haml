@@ -1,5 +1,5 @@
 %form#caesars_form{method: 'post', action: caesars_ciphers_path}
-  %h3= t('lab3.caesars')
+  %h5= t('lab3.caesars')
   .form-row
     .form-group.col-12
       %textarea#caesars_text.form-control{:required => true, :name => 'text', :rows => 5, :placeholder => t('lab3.form.text')}
