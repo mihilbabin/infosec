@@ -6,6 +6,19 @@
     = link_to '#process', class: "list-group-item list-group-item-action flex-column align-items-start #{active_class?(root_path)}" do
       .d-flex.w-100.justify-content-between
         %h5.mb-1= t('nav.process')
+  - else
+    = link_to '#theory', class: "list-group-item list-group-item-action flex-column align-items-start #{active_class?(root_path)}" do
+      .d-flex.w-100.justify-content-between
+        %h5.mb-1= t('nav.theory')
+    = link_to '#algorithm', class: "list-group-item list-group-item-action flex-column align-items-start #{active_class?(root_path)}" do
+      .d-flex.w-100.justify-content-between
+        %h5.mb-1= t('nav.algorithm')
+    = link_to '#listing', class: "list-group-item list-group-item-action flex-column align-items-start #{active_class?(root_path)}" do
+      .d-flex.w-100.justify-content-between
+        %h5.mb-1= t('nav.listing')
+    = link_to '#results', class: "list-group-item list-group-item-action flex-column align-items-start #{active_class?(root_path)}" do
+      .d-flex.w-100.justify-content-between
+        %h5.mb-1= t('nav.results')
   = link_to '#conclusion', class: "list-group-item list-group-item-action flex-column align-items-start #{active_class?(root_path)}" do
     .d-flex.w-100.justify-content-between
       %h5.mb-1= t('nav.conclusion')
