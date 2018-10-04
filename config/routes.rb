@@ -8,4 +8,9 @@ Rails.application.routes.draw do
       get :download
     end
   end
+  resources :ciphers, only: [] do
+    collection do
+      get :caesars
+    end
+  end
 end
