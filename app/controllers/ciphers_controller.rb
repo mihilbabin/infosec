@@ -6,4 +6,9 @@ class CiphersController < ApplicationController
     @result = params[:encode] == '1' ? @caesar.encode(params[:text]) : @caesar.decode(params[:text])
     render json: { text: @result }
   end
+
+  def xor
+    @xor = XOR.new(params[:key])
+    render json: { text: @xor.encrypt(params[:text]) }
+  end
 end

@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :ciphers, only: [] do
     collection do
       post :caesars
+      post :xor
     end
   end
 end
