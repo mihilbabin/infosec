@@ -1,4 +1,6 @@
 class XOR
+  attr_accessor :key
+
   def initialize(key)
     @key = key.codepoints
   end
