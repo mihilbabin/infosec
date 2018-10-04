@@ -1,0 +1,23 @@
+%form#caesars_form{method: 'post', action: caesars_ciphers_path}
+  %h3= t('lab3.caesars')
+  .form-row
+    .form-group.col-12
+      %textarea#caesars_text.form-control{:required => true, :name => 'text', :rows => 5, :placeholder => t('lab3.form.text')}
+        Расшифровывание – процесс нормального применения криптографического преобразования шифрованного текста в открытый.
+  .form-row
+    .form-group.col-md-6
+      %input#caesars_offset.form-control{:required => true, :name => 'offset', :placeholder => t('lab3.form.offset'), :type => 'number', :value => 8}
+    .form-group.col-md-6
+      .form-check.form-check-inline
+        %input#caesars_encode.form-check-input{:checked => true, :name => "encode", :type => "radio", :value => '1'}/
+        %label.form-check-label{:for => "caesars_encode"}= t('lab3.form.encode')
+      .form-check.form-check-inline
+        %input#caesars_decode.form-check-input{:name => "encode", :type => "radio", :value => '0'}/
+        %label.form-check-label{:for => "caesars_decode"}= t('lab3.form.decode')
+  .form-group
+    %button.btn.btn-primary.mb-2#caesars{:type => "submit"}= t('lab3.form.submit')
+  .card
+    .card-header
+      = t('lab3.form.result')
+    .card-body#caesar_result
+      = t('lab3.form.request')

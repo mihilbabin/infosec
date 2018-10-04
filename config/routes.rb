@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   end
   resources :ciphers, only: [] do
     collection do
-      get :caesars
+      post :caesars
     end
   end
 end

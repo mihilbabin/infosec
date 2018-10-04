@@ -1,10 +1,75 @@
 %h5.text-center.mt-4#theory= t('nav.theory')
 .report
+  %p
+    %strong Шифр Цезаря 
+    — симетричний алгоритм шифрування підстановками. Використовувався римським імператором Юлієм Цезарем для приватного листування.
+    Принцип дії полягає в тому, щоб циклічно зсунути алфавіт, а ключ — це кількість літер, на які робиться зсув.
+  %p 
+    Шифр Цезаря має замало ключів — на одиницю менше, ніж літер в абетці. Тому перебрати усі ключі не складає особливої роботи. Дешифрування з одним з ключів дасть нам вірний відкритий текст.
+%h5.text-center.mt-4#theory= t('nav.algorithm')
+.report
+  %p
+    %strong Шифр Цезаря
+    Якщо зіставити кожному символу алфавіту його порядковий номер (нумеруючи з 0), то шифрування і дешифрування можна виразити формулами:
+    %br
+    %img{ src: 'https://wikimedia.org/api/rest_v1/media/math/render/svg/d0340125bb9f010d55cbca5c26f9e6704da63037' }
+    %br
+    %img{ src: 'https://wikimedia.org/api/rest_v1/media/math/render/svg/647768d4e65a71fa84f436aeb99e5b125cfd0e81' }
+    де 
+    %em x
+    — порядковий номер символу відкритого тексту, 
+    %em y 
+    — порядковий номер символу шифрованого тексту, 
+    %em n — потужність алфавіту, а
+    %em k
+    — ключ.
+
 %h5.text-center.mt-4#listing= t('nav.listing')
 .report
-%h5.text-center.mt-4#process= t('nav.process')
-.report
+  %pre
+    %code{class: 'ruby'}
+      :preserve
+        class Caesar
+          attr_reader :offset
+
+          LOW_RU_ALPHABET = Array('а'..'я')
+          UP_RU_ALPHABET = Array('А'..'Я')
+          LOW_EN_ALPHABET = Array('a'..'z')
+          UP_EN_ALPHABET = Array('A'..'Z')
+
+          def initialize(offset = 8)
+            @offset = offset
+            @encryptor = create_encryption_table(offset)
+            @decryptor = create_encryption_table(-offset)
+          end
+
+          def offset=(offset)
+            @offset = offset
+            @encryptor = create_encryption_table(offset)
+            @decryptor = create_encryption_table(-offset)
+          end
+
+          def encode(text)
+            text.chars.map { |c| @encryptor.fetch(c, c) }.join
+          end
+
+          def decode(text)
+            text.chars.map { |c| @decryptor.fetch(c, c) }.join
+          end
+
+          private
+
+          def create_encryption_table(offset)
+            [
+              Hash[LOW_RU_ALPHABET.zip(LOW_RU_ALPHABET.rotate(offset))],
+              Hash[UP_RU_ALPHABET.zip(UP_RU_ALPHABET.rotate(offset))],
+              Hash[LOW_EN_ALPHABET.zip(LOW_EN_ALPHABET.rotate(offset))],
+              Hash[UP_EN_ALPHABET.zip(UP_EN_ALPHABET.rotate(offset))]
+            ].inject(&:merge)
+          end
+        end
 %h5.text-center.mt-4#results= t('nav.results')
 .report
+= render 'labs/labs/lab_3/tabs'
 %h5.text-center.mt-4#conclusion= t('nav.conclusion')
 .report

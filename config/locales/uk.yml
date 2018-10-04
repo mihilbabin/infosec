@@ -296,3 +296,13 @@ uk:
     conclusion: Висновок
   shared:
     download: Завантажити
+  lab3:
+    caesars: Шифр Цезаря
+    form:
+      text: Текст для шифрування
+      encode: Зашифрувати
+      decode: Розшифрувати
+      offset: Зсув
+      submit: Відправити
+      result: Результат
+      request: Відправте спочатку форму

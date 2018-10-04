@@ -1,3 +1,13 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+$(function(){
+  $("#caesars").click(function(e){
+    e.preventDefault();
+    var form = $("#caesars_form")
+    $.ajax({
+      method: form.attr('method'),
+      url: form.attr('action'),
+      data: form.serialize()
+    }).done(function(response){
+      $("#caesar_result").html(response.text);
+    });
+  });
+});

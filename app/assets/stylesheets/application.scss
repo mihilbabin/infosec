@@ -13,6 +13,7 @@
  */
 @import "bootstrap";
 @import "font-awesome";
+@import "default";
 
 .container[role='main'] {
   min-height: 800px;
@@ -38,4 +39,8 @@ p {
 .sticky {
   position: sticky;
   top: 0;
+}
+
+.form-check-inline {
+  padding-top: 5px;
 }
