@@ -298,11 +298,13 @@ uk:
     download: Завантажити
   lab3:
     caesars: Шифр Цезаря
+    xor: Шифр XOR
     form:
       text: Текст для шифрування
       encode: Зашифрувати
       decode: Розшифрувати
       offset: Зсув
+      key: Ключ
       submit: Відправити
       result: Результат
       request: Відправте спочатку форму
