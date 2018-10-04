@@ -1,9 +1,9 @@
 %ul#pills-tab.nav.nav-pills.mb-3{:role => "tablist"}
   %li.nav-item
-    %a#pills-home-tab.nav-link.active{"aria-controls" => "pills-home", "aria-selected" => "true", "data-toggle" => "pill", :href => "#pills-home", :role => "tab"}= t('lab3.caesars')
+    %a#pills-caesar-res-tab.nav-link.active{"aria-controls" => "pills-home", "aria-selected" => "true", "data-toggle" => "pill", :href => "#pills-caesar-res", :role => "tab"}= t('lab3.caesars')
   %li.nav-item
-    %a#pills-profile-tab.nav-link{"aria-controls" => "pills-profile", "aria-selected" => "false", "data-toggle" => "pill", :href => "#pills-profile", :role => "tab"} NULL
+    %a#pills-xor-res-tab.nav-link{"aria-controls" => "pills-profile", "aria-selected" => "false", "data-toggle" => "pill", :href => "#pills-xor-res", :role => "tab"}= t('lab3.xor')
 #pills-tabContent.tab-content
-  #pills-home.tab-pane.fade.show.active{"aria-labelledby" => "pills-home-tab", :role => "tabpanel"}
+  #pills-caesar-res.tab-pane.fade.show.active{"aria-labelledby" => "pills-caesar-res-tab", :role => "tabpanel"}
     = render 'labs/labs/lab_3/caesars'
-  #pills-profile.tab-pane.fade{"aria-labelledby" => "pills-profile-tab", :role => "tabpanel"} text2
+  #pills-xor-res.tab-pane.fade{"aria-labelledby" => "pills-xor-res-tab", :role => "tabpanel"}= t('lab3.xor')

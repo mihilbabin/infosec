@@ -27,11 +27,11 @@
 %h5.text-center.mt-4#listing= t('nav.listing')
 %ul#pills-tab.nav.nav-pills.mb-3{:role => "tablist"}
   %li.nav-item
-    %a#pills-home-tab.nav-link.active{"aria-controls" => "pills-home", "aria-selected" => "true", "data-toggle" => "pill", :href => "#pills-home", :role => "tab"}= t('lab3.caesars')
+    %a#pills-caesar-tab.nav-link.active{"aria-controls" => "pills-caesar", "aria-selected" => "true", "data-toggle" => "pill", :href => "#pills-caesar", :role => "tab"}= t('lab3.caesars')
   %li.nav-item
-    %a#pills-profile-tab.nav-link{"aria-controls" => "pills-profile", "aria-selected" => "false", "data-toggle" => "pill", :href => "#pills-profile", :role => "tab"} NULL
+    %a#pills-xor-tab.nav-link{"aria-controls" => "pills-xor", "aria-selected" => "false", "data-toggle" => "pill", :href => "#pills-xor", :role => "tab"}= t('lab3.xor')
 #pills-tabContent.tab-content
-  #pills-home.tab-pane.fade.show.active{"aria-labelledby" => "pills-home-tab", :role => "tabpanel"}
+  #pills-caesar.tab-pane.fade.show.active{"aria-labelledby" => "pills-caesar-tab", :role => "tabpanel"}
     %pre
       %code{class: 'ruby'}
         :preserve
@@ -74,7 +74,19 @@
               ].inject(&:merge)
             end
           end
-  #pills-profile.tab-pane.fade{"aria-labelledby" => "pills-profile-tab", :role => "tabpanel"} text2
+  #pills-xor.tab-pane.fade{"aria-labelledby" => "pills-xor-tab", :role => "tabpanel"}
+    %pre
+      %code{class: 'ruby'}
+        :preserve
+          class XOR
+            def initialize(key)
+              @key = key.codepoints
+            end
+
+            def encrypt(text)
+              text.codepoints.map.with_index { |c, i| (c ^ @key[i % @key.size]).ord }.join
+            end
+          end
 %h5.text-center.mt-4#results= t('nav.results')
 .report
 = render 'labs/labs/lab_3/tabs'
