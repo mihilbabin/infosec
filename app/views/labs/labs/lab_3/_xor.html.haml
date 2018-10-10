@@ -1,0 +1,16 @@
+%form#xors_form{method: 'post', action: xor_ciphers_path}
+  %h5= t('lab3.xor')
+  .form-row
+    .form-group.col-12
+      %textarea#xor_text.form-control{:required => true, :name => 'text', :rows => 5, :placeholder => t('lab3.form.text')}
+        Ключ –  параметр шифра, определяющий выбор конкретного преобразования данного текста.
+  .form-row
+    .form-group.col-12
+      %input#xor_key.form-control{:required => true, :name => 'key', :placeholder => t('lab3.form.key'), :value => (0...85).map { (97 + rand(26)).chr }.join}
+  .form-group
+    %button.btn.btn-primary.mb-2#xors{:type => "submit"}= t('lab3.form.submit')
+  .card
+    .card-header
+      = t('lab3.form.result')
+    .card-body#xor_result
+      = t('lab3.form.request')

@@ -7,7 +7,7 @@ class XOR
 
   def encrypt(text)
     text.codepoints.map.with_index do |c, i|
-      (c ^ @key[i % @key.size]).ord
+      (c ^ @key[i % @key.size]).chr
     end.join
   end
 end
