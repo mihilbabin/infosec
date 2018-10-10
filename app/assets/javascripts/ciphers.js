@@ -1,4 +1,4 @@
-$(function(){
+$(document).on('turbolinks:load', function(){
   $("#caesars").click(function(e){
     e.preventDefault();
     var form = $("#caesars_form");
