@@ -1,7 +1,7 @@
 .row
-  .col-4
+  .col-md-4.col-sm-12
     = render "labs/shared/aside"
-  .col-8
+  .col-md-8.col-sm-12
     - if @lab.asset_name.present?
       .alert.alert-warning.alert-dismissible.mt-4.fade.show{:role => "alert"}
         = link_to download_lab_path(@lab), target: '_blank', class: 'alert-link' do
