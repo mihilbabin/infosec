@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   root 'index#index'
   get 'title_doc', to: 'index#title_doc'
+
+  resources :users, only: [:new, :create]
+
   resources :labs, only: [:show] do
     member do
       get :download
