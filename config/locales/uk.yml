@@ -19,6 +19,15 @@ uk:
         task: Завдання
         partial_name: Ім'я шаблону
         asset_name: Файл звіту
+      user:
+        name: "Ім'я"
+        password_digest: Хеш-пароль
+        locked?: Заблокований
+        attempts: Кількість спроб
+    scopes:
+      user:
+        all: Всі
+        locked: Заблоковані
     updated_in_words: "Оновлено %{time_in_words} тому"
   date:
     abbr_day_names:
