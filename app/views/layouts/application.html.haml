@@ -12,5 +12,8 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     = render 'shared/navbar'
+    - flash.each do |key, value|
+      %div{class: flash_class(key)}
+        = value
     %main.container-fluid{:role => "main"}
       = yield
