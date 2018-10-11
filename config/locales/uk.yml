@@ -317,3 +317,7 @@ uk:
       submit: Відправити
       result: Результат
       request: Відправте спочатку форму
+  users:
+    registrations:
+      success: '%{name}, вітаємо з реєстрацією'
+      error: Помилка при реєстрації
