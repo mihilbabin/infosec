@@ -13,8 +13,11 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     = render 'shared/navbar'
-    - flash.each do |key, value|
-      %div{class: flash_class(key)}
-        = value
+    .container.mt-4
+      - flash.each do |key, value|
+        %div.row.alert-dismissible.fade.show{:role => "alert", class: flash_class(key.to_sym)}
+          = value
+          %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
+            %span{"aria-hidden" => "true"} ×
     %main.container-fluid{:role => "main"}
       = yield

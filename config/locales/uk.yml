@@ -319,5 +319,7 @@ uk:
       request: Відправте спочатку форму
   users:
     registrations:
+      title: Реєстрація
       success: '%{name}, вітаємо з реєстрацією'
       error: Помилка при реєстрації
+      action: Зареєструватися
