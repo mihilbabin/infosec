@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 
     if @user.save
       flash[:notice] = I18n.t('users.registrations.success', name: @user.name)
-      redirect_to root_url
+      redirect_to new_session_path
     else
       flash.now.alert = I18n.t('users.registrations.error')
       render :new
