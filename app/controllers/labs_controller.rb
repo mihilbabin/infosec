@@ -1,6 +1,7 @@
 class LabsController < ApplicationController
   before_action :set_labs, except: :download
   before_action :set_lab
+  before_action :authenticate_user!, only: :show, if: -> { @lab.partial_name == 'lab_4' }
 
   def show; end
 
