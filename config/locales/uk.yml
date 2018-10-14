@@ -24,6 +24,7 @@ uk:
         password_digest: Хеш-пароль
         locked?: Заблокований
         attempts: Кількість спроб
+        password: Пароль
     scopes:
       user:
         all: Всі
@@ -323,3 +324,9 @@ uk:
       success: '%{name}, вітаємо з реєстрацією'
       error: Помилка при реєстрації
       action: Зареєструватися
+    sessions:
+      title: Вхід
+      success: 'Ви увійшли як %{name}'
+      error: Невірна комбінація email-у та пароля
+      action: Увійти
+      no_account: Не маєте облікового запису?
