@@ -21,8 +21,8 @@
           - else
             %a.dropdown-item.disabled= t('link.no_labs')
     %ul.navbar-nav.my-2.my-md-0.mr-md-3
-      %li.nav-item{ class: active_class?(root_path) }
-        = link_to '#', class: 'nav-link' do
+      %li.nav-item{ class: active_class?(new_session_path) }
+        = link_to new_session_path, class: 'nav-link' do
           = fa_icon 'sign-in'
           = t('link.sign_in')
       %li.nav-item{ class: active_class?(new_user_path) }
