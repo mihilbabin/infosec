@@ -36,3 +36,11 @@ p {
   padding-top: 5px;
 }
 
+.row .col-12.with-img { 
+  text-align: center;
+  border-bottom: 1px solid #aaa;
+  img {
+    margin: 5px;
+    width: 600px;
+  }
+}
