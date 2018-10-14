@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
     if @user&.authenticate(params[:session][:password])
       reject_locked!
     else
-      @user&.increment!(:attempts)
+      @user&.increment!(:attempts) unless @user&.locked?
       flash.now[:error] = I18n.t('users.sessions.error')
       render :new
     end
