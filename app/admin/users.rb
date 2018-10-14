@@ -1,5 +1,5 @@
 ActiveAdmin.register User do
-  permit_params :name, :email, :password, :password_confirmation
+  permit_params :name, :email, :attempts, :password, :password_confirmation
 
   scope I18n.t('activerecord.scopes.user.all'), :all
   scope I18n.t('activerecord.scopes.user.locked'), :locked
@@ -18,10 +18,14 @@ ActiveAdmin.register User do
 
   form do |f|
     f.inputs do
+      f.semantic_errors *f.object.errors.keys
       f.input :name
       f.input :email
-      f.input :password
-      f.input :password_confirmation
+      f.input :attempts
+      if f.object.new_record?
+        f.input :password
+        f.input :password_confirmation
+      end
       f.actions
     end
   end
