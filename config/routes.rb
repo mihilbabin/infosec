@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'title_doc', to: 'index#title_doc'
 
   resources :users, only: [:new, :create]
+  resources :sessions, only: [:new, :create, :destroy]
 
   resources :labs, only: [:show] do
     member do
