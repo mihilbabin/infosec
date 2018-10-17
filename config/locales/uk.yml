@@ -322,8 +322,10 @@ uk:
   lab4:
     model: Модель Користувача
     registrations: Контролер реєстрацій
-    sessions: Контролер сесій
+    sessions: Контроллер сесій
     helpers: Допоміжні методи
+  lab5:
+    admin: Сторінка адміна
   users:
     registrations:
       title: Реєстрація

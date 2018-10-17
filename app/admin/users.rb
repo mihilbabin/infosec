@@ -18,7 +18,7 @@ ActiveAdmin.register User do
 
   form do |f|
     f.inputs do
-      f.semantic_errors *f.object.errors.keys
+      f.semantic_errors(*f.object.errors.keys)
       f.input :name
       f.input :email
       f.input :attempts
